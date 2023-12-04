@@ -7,9 +7,12 @@ def main():
     example = get_examples(operations)
     executed_operations = get_executed(example)
     sorted_operations = operations_by_date(executed_operations)
-    print(example[1].from_where)
+    count = 0
     for operation in sorted_operations:
-        print(operation)
+        if count < 5:
+            count += 1
+            print(operation)
+            print()
 
 
 if __name__ == '__main__':

@@ -14,12 +14,10 @@ class Operation:
     def convert_date(self, date):
         """
         Функция конвертации формата даты
-        :param date: строка с датой в формате iso
-        :return: datetime в требуемом формате
+        :param date: строка с датой
+        :return: преобразованная дата в iso datetime
         """
-        iso_date = datetime.fromisoformat(date)
-        str_date = datetime.strftime(iso_date, "%d.%m.%Y")
-        return datetime.strptime(str_date, "%d.%m.%Y")
+        return datetime.fromisoformat(date)
 
     def convert_payment_info(self, payment_info: str):
         if payment_info:
@@ -36,6 +34,6 @@ class Operation:
         return f'Счет/Номер карты не указан'
 
     def __str__(self):
-        return (f"{self.date} {self.description}\n"
+        return (f"{datetime.strftime(self.date, '%d.%m.%Y')} {self.description}\n"
                 f"{self.from_where} -> {self.to}\n"
                 f"{self.operation_amount['amount']} {self.operation_amount['currency']['name']}")
