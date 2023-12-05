@@ -14,6 +14,11 @@ def load_operations(path):
 
 
 def get_examples(operations):
+    """
+    Функция формирования списка экземпляров класса Operation
+    :param operations: список словарей
+    :return: список экземпляров
+    """
     operation_examples = []
     for operation in operations:
         if operation:
@@ -31,6 +36,11 @@ def get_examples(operations):
 
 
 def get_executed(operations):
+    """
+    Функция формирования списка экземпляров (операций) со статусом "Исполнено"
+    :param operations: список экземпляров
+    :return: отфильтрованный список экземпляров
+    """
     executed_operations = []
     for operation in operations:
         if operation.state == "EXECUTED":
@@ -39,4 +49,9 @@ def get_executed(operations):
 
 
 def operations_by_date(operations):
+    """
+    Функция сортировки экзмепляров по дате
+    :param operations:список экземпляров
+    :return: отсортированный список экземпляров по дате
+    """
     return sorted(operations, key=lambda operation: operation.date, reverse=True)

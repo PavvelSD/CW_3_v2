@@ -20,6 +20,11 @@ class Operation:
         return datetime.fromisoformat(date)
 
     def convert_payment_info(self, payment_info: str):
+        """
+        Функция конвертации отображаемой информации об операции (шифрование)
+        :param payment_info: строка с информацией о платеже
+        :return: строка с зашифрованной информацией о платеже или пустая строка
+        """
         if payment_info:
             payment_info_list = payment_info.split()
             if payment_info.startswith("Счет"):
@@ -34,6 +39,10 @@ class Operation:
         return f""
 
     def __str__(self):
+        """
+        Функция преобразования вида выводимой информации об операции
+        :return: f-строки
+        """
         return (f"{datetime.strftime(self.date, '%d.%m.%Y')} {self.description}\n"
                 f"{self.from_where} -> {self.to}\n"
                 f"{self.operation_amount['amount']} {self.operation_amount['currency']['name']}")
