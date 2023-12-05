@@ -31,7 +31,7 @@ class Operation:
                 num_card = f'{num_card[0:4]} {num_card[4:6]}** **** {num_card[-4:]}'
                 payment_info_list.append(num_card)
             return " ".join(payment_info_list)
-        return f'Счет/Номер карты не указан'
+        return f""
 
     def __str__(self):
         return (f"{datetime.strftime(self.date, '%d.%m.%Y')} {self.description}\n"
