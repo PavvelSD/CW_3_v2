@@ -19,12 +19,12 @@ def get_examples(operations):
         if operation:
             operation_example = Operation(
                 pk=operation["id"],
-                date=operation["date"],
                 state=operation["state"],
+                date=operation["date"],
                 operation_amount=operation["operationAmount"],
                 description=operation["description"],
                 from_where=operation.get("from", ""),
-                to=operation["to"],
+                to=operation["to"]
             )
             operation_examples.append(operation_example)
     return operation_examples

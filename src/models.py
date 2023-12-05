@@ -2,10 +2,10 @@ from datetime import datetime
 
 
 class Operation:
-    def __init__(self, pk, date, state, operation_amount, description, from_where, to):
+    def __init__(self, pk, state, date, operation_amount, description, from_where, to):
         self.pk = pk
-        self.date = self.convert_date(date)
         self.state = state
+        self.date = self.convert_date(date)
         self.operation_amount = operation_amount
         self.description = description
         self.from_where = self.convert_payment_info(from_where)
